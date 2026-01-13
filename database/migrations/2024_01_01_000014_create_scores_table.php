@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('scores', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->uuid('match_id');
+            $table->integer('set_number')->default(1);
+            $table->integer('home_score')->default(0);
+            $table->integer('away_score')->default(0);
+            $table->boolean('is_tiebreak')->default(false);
+            $table->string('device_id')->nullable();
+            $table->timestamp('recorded_at')->nullable();
+            $table->timestamps();
+
+            $table->foreign('match_id')
+                ->references('id')
+                ->on('matches')
+                ->onDelete('cascade');
+
+            $table->index('match_id');
+            $table->unique(['match_id', 'set_number']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('scores');
+    }
+};
