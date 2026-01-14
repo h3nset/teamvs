@@ -3,9 +3,7 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import tailwindcss from '@tailwindcss/vite';
 
-export default defineConfig(({ command }) => ({
-    // Use /teamvs/ base for production build (subdirectory deployment)
-    base: command === 'build' ? '/teamvs/' : '/',
+export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
@@ -31,4 +29,5 @@ export default defineConfig(({ command }) => ({
             '@': '/resources/js',
         },
     },
-}));
+});
+
