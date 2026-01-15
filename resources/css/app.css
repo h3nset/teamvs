@@ -349,3 +349,61 @@ body {
 .sync-indicator.error {
     color: var(--color-error);
 }
+
+/* Sporty Typography - Rezimainpadel Versus Branding */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap');
+
+.brand-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #ff6b8a 50%, var(--color-primary) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+}
+
+.brand-title-static {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+}
+
+.brand-versus {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+.brand-logo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.brand-logo::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 80%;
+    background: linear-gradient(180deg, var(--color-primary), transparent);
+    border-radius: 2px;
+}

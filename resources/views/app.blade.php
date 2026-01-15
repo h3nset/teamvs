@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1a1a2e">
     
-    <title inertia>{{ config('app.name', 'Padel Tournament') }}</title>
+    <title inertia>{{ config('app.name', 'Rezimainpadel Versus') }}</title>
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">

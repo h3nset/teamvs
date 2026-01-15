@@ -44,12 +44,21 @@ class TournamentController extends Controller
             'rounds' => 'required|integer|min:1|max:20',
             'max_matches_per_pair' => 'required|integer|min:1|max:20',
             'points_per_set' => 'required|integer|min:1|max:100',
+            'is_locked' => 'boolean',
         ]);
 
         $tournament = Tournament::create($validated);
 
+        // Store token in session for display (one-time show)
+        session()->flash('new_tournament_token', $tournament->access_token);
+        
+        // Mark as validated so creator has access
+        $validatedTournaments = session('validated_tournaments', []);
+        $validatedTournaments[] = $tournament->id;
+        session(['validated_tournaments' => array_unique($validatedTournaments)]);
+
         return redirect()->route('tournaments.show', $tournament)
-            ->with('success', 'Tournament created successfully.');
+            ->with('success', 'Tournament created successfully. Save your access token!');
     }
 
     public function show(Tournament $tournament)
@@ -165,6 +174,50 @@ class TournamentController extends Controller
             'stats' => $stats,
             'awards' => $awards,
         ]);
+    }
+
+    /**
+     * Show the unlock form for a protected tournament.
+     */
+    public function showUnlock(Tournament $tournament)
+    {
+        // If already validated, redirect to show
+        $validatedTournaments = session('validated_tournaments', []);
+        if (in_array($tournament->id, $validatedTournaments)) {
+            return redirect()->route('tournaments.show', $tournament);
+        }
+
+        return Inertia::render('Tournaments/Unlock', [
+            'tournament' => $tournament->only(['id', 'name', 'is_locked']),
+        ]);
+    }
+
+    /**
+     * Validate the access token and unlock the tournament.
+     */
+    public function unlock(Request $request, Tournament $tournament)
+    {
+        $validated = $request->validate([
+            'access_token' => 'required|string',
+        ]);
+
+        if (!$tournament->is_locked) {
+            return redirect()->route('tournaments.show', $tournament);
+        }
+
+        if (!hash_equals($tournament->access_token ?? '', $validated['access_token'])) {
+            return back()->withErrors([
+                'access_token' => 'Invalid access token. Please check and try again.',
+            ]);
+        }
+
+        // Store validated tournament in session
+        $validatedTournaments = session('validated_tournaments', []);
+        $validatedTournaments[] = $tournament->id;
+        session(['validated_tournaments' => array_unique($validatedTournaments)]);
+
+        return redirect()->route('tournaments.show', $tournament)
+            ->with('success', 'Tournament unlocked successfully!');
     }
 }
 

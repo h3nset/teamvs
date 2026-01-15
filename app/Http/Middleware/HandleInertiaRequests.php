@@ -40,6 +40,7 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
                 'error' => fn () => $request->session()->get('error'),
+                'new_tournament_token' => fn () => $request->session()->get('new_tournament_token'),
             ],
             'ziggy' => fn () => [
                 ...(new \Tighten\Ziggy\Ziggy)->toArray(),

@@ -186,7 +186,7 @@ self.addEventListener('push', (event) => {
     };
 
     event.waitUntil(
-        self.registration.showNotification('Padel Tournament', options)
+        self.registration.showNotification('Rezimainpadel Versus', options)
     );
 });
 

@@ -1,5 +1,5 @@
 {
-    "name": "Padel Tournament Manager",
+    "name": "Rezimainpadel Versus",
     "short_name": "PadelTM",
     "description": "Team-based padel tournament management with offline support",
     "start_url": "/",
@@ -51,7 +51,10 @@
             "purpose": "any maskable"
         }
     ],
-    "categories": ["sports", "utilities"],
+    "categories": [
+        "sports",
+        "utilities"
+    ],
     "screenshots": [],
     "shortcuts": [
         {

@@ -1,7 +1,7 @@
 <script setup>
-import { Head, Link, useForm, router } from '@inertiajs/vue3';
+import { Head, Link, useForm, router, usePage } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 const props = defineProps({
     tournament: Object,
@@ -9,11 +9,33 @@ const props = defineProps({
     scheduleStats: Object,
 });
 
+const page = usePage();
+
 const showTeamModal = ref(false);
 const showPairModal = ref(false);
+const showTokenModal = ref(false);
 const selectedTeam = ref(null);
 const editingTeam = ref(null);
 const editingPair = ref(null);
+const tokenCopied = ref(false);
+
+// Get flashed token from session (only available once after creation)
+const newTournamentToken = computed(() => page.props.flash?.new_tournament_token);
+
+onMounted(() => {
+    // Show token modal if this is a newly created tournament
+    if (newTournamentToken.value) {
+        showTokenModal.value = true;
+    }
+});
+
+const copyToken = async () => {
+    if (newTournamentToken.value) {
+        await navigator.clipboard.writeText(newTournamentToken.value);
+        tokenCopied.value = true;
+        setTimeout(() => tokenCopied.value = false, 2000);
+    }
+};
 
 const teamForm = useForm({
     name: '',
@@ -471,6 +493,64 @@ const getMatchStatusClass = (status) => {
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </Teleport>
+        
+        <!-- Access Token Modal (shows after creation) -->
+        <Teleport to="body">
+            <div v-if="showTokenModal && newTournamentToken" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+                <div class="card p-6 w-full max-w-md animate-slide-up" @click.stop>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto bg-green-500/20 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tournament Created!</h3>
+                        <p class="text-gray-400 text-sm">
+                            Save this access token to manage your tournament later.
+                            <strong class="text-yellow-400">This is the only time you'll see it!</strong>
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="label">Your Access Token</label>
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                :value="newTournamentToken" 
+                                readonly 
+                                class="input font-mono text-sm pr-24"
+                            />
+                            <button 
+                                @click="copyToken"
+                                class="absolute right-2 top-1/2 -translate-y-1/2 btn btn-sm"
+                                :class="tokenCopied ? 'btn-success' : 'btn-primary'"
+                            >
+                                {{ tokenCopied ? '✓ Copied!' : 'Copy' }}
+                            </button>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500">
+                            Share this token with co-organizers who need to manage the tournament.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <div class="text-sm text-yellow-200">
+                                <strong>Important:</strong> Store this token somewhere safe. 
+                                You'll need it to edit teams, start matches, or make changes to the tournament.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button @click="showTokenModal = false" class="btn btn-primary w-full">
+                        I've Saved My Token
+                    </button>
                 </div>
             </div>
         </Teleport>

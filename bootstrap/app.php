@@ -15,6 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\HandleInertiaRequests::class,
         ]);
+        
+        $middleware->alias([
+            'tournament.token' => \App\Http\Middleware\ValidateTournamentToken::class,
+            'maintenance.token' => \App\Http\Middleware\ValidateMaintenanceToken::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

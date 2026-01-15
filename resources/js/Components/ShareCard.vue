@@ -78,7 +78,7 @@ const shareImage = async () => {
                 <div class="bg-gradient-to-r from-primary to-pink-600 px-6 py-4">
                     <div class="flex items-center justify-between">
                         <div class="text-white font-bold text-lg">{{ tournament?.name }}</div>
-                        <div class="text-white/70 text-sm">🏆 Padel Tournament</div>
+                        <div class="text-white/70 text-sm">🏆 Rezimainpadel Versus</div>
                     </div>
                 </div>
                 

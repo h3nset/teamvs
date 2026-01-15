@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Padel Team VS'),
+    'name' => env('APP_NAME', 'Rezimainpadel Versus'),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,5 +122,17 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Maintenance Token
+    |--------------------------------------------------------------------------
+    |
+    | This token is used to protect the maintenance/cleanup pages.
+    | Set this in your .env file as MAINTENANCE_TOKEN=your-secret-token
+    |
+    */
+
+    'maintenance_token' => env('MAINTENANCE_TOKEN'),
 
 ];

@@ -27,12 +27,15 @@ onUnmounted(() => {
             <div class="container-app">
                 <div class="flex items-center justify-between h-16">
                     <Link :href="route('tournaments.index')" class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center shadow-lg">
                             <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <span class="text-xl font-bold text-white">Padel Tournament</span>
+                        <div class="brand-logo pl-3">
+                            <span class="brand-title text-lg">Rezimainpadel</span>
+                            <span class="brand-versus">VERSUS</span>
+                        </div>
                     </Link>
                     
                     <div class="flex items-center gap-4">

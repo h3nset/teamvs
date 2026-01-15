@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Tournament extends Model
 {
@@ -19,15 +20,41 @@ class Tournament extends Model
         'points_per_set',
         'status',
         'settings',
+        'access_token',
+        'is_locked',
         'started_at',
         'ended_at',
     ];
 
     protected $casts = [
         'settings' => 'array',
+        'is_locked' => 'boolean',
         'started_at' => 'datetime',
         'ended_at' => 'datetime',
     ];
+
+    protected $hidden = [
+        'access_token',
+    ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (Tournament $tournament) {
+            if (empty($tournament->access_token)) {
+                $tournament->access_token = Str::random(32);
+            }
+        });
+    }
+
+    /**
+     * Generate a new access token for the tournament.
+     */
+    public function regenerateToken(): string
+    {
+        $this->access_token = Str::random(32);
+        $this->save();
+        return $this->access_token;
+    }
 
     public function teams(): HasMany
     {
