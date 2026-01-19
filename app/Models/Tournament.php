@@ -18,6 +18,7 @@ class Tournament extends Model
         'rounds',
         'max_matches_per_pair',
         'points_per_set',
+        'scoring_mode',
         'status',
         'settings',
         'access_token',
@@ -25,6 +26,15 @@ class Tournament extends Model
         'started_at',
         'ended_at',
     ];
+
+    // Scoring mode constants
+    public const SCORING_UNLIMITED = 'unlimited';
+    public const SCORING_AMERICANO = 'americano';
+
+    public function isAmericanoScoring(): bool
+    {
+        return $this->scoring_mode === self::SCORING_AMERICANO;
+    }
 
     protected $casts = [
         'settings' => 'array',
