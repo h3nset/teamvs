@@ -70,7 +70,11 @@ onUnmounted(() => {
         
         <!-- Footer -->
         <footer class="text-center py-6 mt-8 border-t border-white/10">
-            <p class="text-sm font-bold text-gray-400">2026 with ❤️ from REZIM70</p>
+            <div class="flex items-center justify-center gap-3 text-sm">
+                <span class="font-bold text-gray-400">2026 with ❤️ from REZIM70</span>
+                <span class="text-gray-600">•</span>
+                <span class="text-gray-500 font-mono text-xs">{{ $page.props.app?.version || 'v1.0.0' }}</span>
+            </div>
         </footer>
     </div>
 </template>

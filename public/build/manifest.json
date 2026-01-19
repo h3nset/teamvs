@@ -1,18 +1,18 @@
 {
-  "_AppLayout-D3M_acXT.js": {
-    "file": "assets/AppLayout-D3M_acXT.js",
+  "_AppLayout-3NSSByiQ.js": {
+    "file": "assets/AppLayout-3NSSByiQ.js",
     "name": "AppLayout",
     "imports": [
       "resources/js/app.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
-      "assets/AppLayout-b7tKMQt7.css"
+      "assets/AppLayout-C3tMuILQ.css"
     ]
   },
-  "_AppLayout-b7tKMQt7.css": {
-    "file": "assets/AppLayout-b7tKMQt7.css",
-    "src": "_AppLayout-b7tKMQt7.css"
+  "_AppLayout-C3tMuILQ.css": {
+    "file": "assets/AppLayout-C3tMuILQ.css",
+    "src": "_AppLayout-C3tMuILQ.css"
   },
   "__plugin-vue_export-helper-DlAUqK2U.js": {
     "file": "assets/_plugin-vue_export-helper-DlAUqK2U.js",
@@ -28,13 +28,13 @@
     ]
   },
   "resources/js/Pages/Leaderboard/Show.vue": {
-    "file": "assets/Show-B_aiVobe.js",
+    "file": "assets/Show-CtBiMb6T.js",
     "name": "Show",
     "src": "resources/js/Pages/Leaderboard/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -42,13 +42,13 @@
     ]
   },
   "resources/js/Pages/Maintenance/Index.vue": {
-    "file": "assets/Index-CBcX8o_K.js",
+    "file": "assets/Index-D1gOiu7F.js",
     "name": "Index",
     "src": "resources/js/Pages/Maintenance/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -57,13 +57,13 @@
     ]
   },
   "resources/js/Pages/Matches/Index.vue": {
-    "file": "assets/Index-B3qu7i-7.js",
+    "file": "assets/Index-Byg3MXlL.js",
     "name": "Index",
     "src": "resources/js/Pages/Matches/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -72,13 +72,13 @@
     ]
   },
   "resources/js/Pages/Matches/ScoreInput.vue": {
-    "file": "assets/ScoreInput-D3vtZUgF.js",
+    "file": "assets/ScoreInput-BvRg89K0.js",
     "name": "ScoreInput",
     "src": "resources/js/Pages/Matches/ScoreInput.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -87,13 +87,13 @@
     ]
   },
   "resources/js/Pages/Matches/Show.vue": {
-    "file": "assets/Show-6DM-EErP.js",
+    "file": "assets/Show-BY5_N21D.js",
     "name": "Show",
     "src": "resources/js/Pages/Matches/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -101,13 +101,13 @@
     ]
   },
   "resources/js/Pages/Scoreboard/Show.vue": {
-    "file": "assets/Show-VqIArR2A.js",
+    "file": "assets/Show-0vY_zbm5.js",
     "name": "Show",
     "src": "resources/js/Pages/Scoreboard/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -116,7 +116,7 @@
     ]
   },
   "resources/js/Pages/Scoreboard/TV.vue": {
-    "file": "assets/TV-Bd-pPbTP.js",
+    "file": "assets/TV-DAKDj9ER.js",
     "name": "TV",
     "src": "resources/js/Pages/Scoreboard/TV.vue",
     "isDynamicEntry": true,
@@ -130,7 +130,7 @@
     ]
   },
   "resources/js/Pages/Tournaments/Complete.vue": {
-    "file": "assets/Complete-CxKHTyTD.js",
+    "file": "assets/Complete-C9Uo5heJ.js",
     "name": "Complete",
     "src": "resources/js/Pages/Tournaments/Complete.vue",
     "isDynamicEntry": true,
@@ -144,13 +144,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Create.vue": {
-    "file": "assets/Create-C5xR8gzw.js",
+    "file": "assets/Create-ZNxD3ZV2.js",
     "name": "Create",
     "src": "resources/js/Pages/Tournaments/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -158,13 +158,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Edit.vue": {
-    "file": "assets/Edit-DGC9g1tY.js",
+    "file": "assets/Edit-BIqZhU4l.js",
     "name": "Edit",
     "src": "resources/js/Pages/Tournaments/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -172,13 +172,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Index.vue": {
-    "file": "assets/Index-sMBz1OEI.js",
+    "file": "assets/Index-qMSDuopr.js",
     "name": "Index",
     "src": "resources/js/Pages/Tournaments/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -187,13 +187,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Show.vue": {
-    "file": "assets/Show-ElihC8e5.js",
+    "file": "assets/Show-CD3hZgC2.js",
     "name": "Show",
     "src": "resources/js/Pages/Tournaments/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -202,13 +202,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Statistics.vue": {
-    "file": "assets/Statistics-4zMg9V9k.js",
+    "file": "assets/Statistics-CdRz_Cue.js",
     "name": "Statistics",
     "src": "resources/js/Pages/Tournaments/Statistics.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -217,13 +217,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Unlock.vue": {
-    "file": "assets/Unlock-BZ9YWKre.js",
+    "file": "assets/Unlock-DFNYSShC.js",
     "name": "Unlock",
     "src": "resources/js/Pages/Tournaments/Unlock.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-D3M_acXT.js",
+      "_AppLayout-3NSSByiQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -232,7 +232,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-DnbCPgpw.js",
+    "file": "assets/app-QJZv18Fh.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
