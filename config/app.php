@@ -17,6 +17,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This is the current version of the application following semantic
+    | versioning: MAJOR.MINOR.PATCH
+    |
+    */
+
+    'version' => env('APP_VERSION', '1.0.0'),
+    'version_date' => env('APP_VERSION_DATE', '2026-01-19'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
