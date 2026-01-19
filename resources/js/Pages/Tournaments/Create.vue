@@ -9,6 +9,7 @@ const form = useForm({
     rounds: 4,
     max_matches_per_pair: 4,
     points_per_set: 24,
+    scoring_mode: 'americano',
 });
 
 const submit = () => {
@@ -108,7 +109,58 @@ const submit = () => {
                             max="100"
                             required
                         />
-                        <p class="mt-1 text-xs text-gray-500">Max points in a set</p>
+                        <p class="mt-1 text-xs text-gray-500">
+                            <span v-if="form.scoring_mode === 'unlimited'">Max points per side</span>
+                            <span v-else>Total points to end match</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Scoring Mode -->
+                <div>
+                    <label class="label">Scoring Mode</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                        <label 
+                            class="relative flex items-start p-4 rounded-lg border-2 cursor-pointer transition-all"
+                            :class="form.scoring_mode === 'unlimited' ? 'border-primary bg-primary/10' : 'border-gray-700 hover:border-gray-600'"
+                        >
+                            <input 
+                                type="radio" 
+                                v-model="form.scoring_mode" 
+                                value="unlimited" 
+                                class="sr-only"
+                            />
+                            <div>
+                                <div class="font-semibold text-white flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                    Unlimited
+                                </div>
+                                <p class="text-sm text-gray-400 mt-1">Each side can score up to max points. Manual match completion.</p>
+                            </div>
+                        </label>
+                        
+                        <label 
+                            class="relative flex items-start p-4 rounded-lg border-2 cursor-pointer transition-all"
+                            :class="form.scoring_mode === 'americano' ? 'border-primary bg-primary/10' : 'border-gray-700 hover:border-gray-600'"
+                        >
+                            <input 
+                                type="radio" 
+                                v-model="form.scoring_mode" 
+                                value="americano" 
+                                class="sr-only"
+                            />
+                            <div>
+                                <div class="font-semibold text-white flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Americano
+                                </div>
+                                <p class="text-sm text-gray-400 mt-1">Match ends when combined score reaches target (e.g., 12+9=21).</p>
+                            </div>
+                        </label>
                     </div>
                 </div>
                 

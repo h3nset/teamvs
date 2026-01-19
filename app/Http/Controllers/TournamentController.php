@@ -44,6 +44,7 @@ class TournamentController extends Controller
             'rounds' => 'required|integer|min:1|max:20',
             'max_matches_per_pair' => 'required|integer|min:1|max:20',
             'points_per_set' => 'required|integer|min:1|max:100',
+            'scoring_mode' => 'required|in:unlimited,americano',
             'is_locked' => 'boolean',
         ]);
 
@@ -91,6 +92,7 @@ class TournamentController extends Controller
             'rounds' => 'required|integer|min:1|max:20',
             'max_matches_per_pair' => 'required|integer|min:1|max:20',
             'points_per_set' => 'required|integer|min:1|max:100',
+            'scoring_mode' => 'required|in:unlimited,americano',
         ]);
 
         $tournament->update($validated);

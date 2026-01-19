@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link, useForm, router } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 const props = defineProps({
     tournament: Object,
@@ -35,8 +35,46 @@ function generateDeviceId() {
     return id;
 }
 
+// Americano scoring mode detection
+const isAmericano = computed(() => props.tournament.scoring_mode === 'americano');
+
+// Current combined score for this set
+const currentSetTotal = computed(() => homeScore.value + awayScore.value);
+
+// Remaining points until match ends (Americano mode)
+const remainingPoints = computed(() => {
+    if (!isAmericano.value) return null;
+    return props.pointsPerSet - currentSetTotal.value;
+});
+
+// Progress percentage for Americano mode
+const progressPercent = computed(() => {
+    if (!isAmericano.value) return 0;
+    return Math.min((currentSetTotal.value / props.pointsPerSet) * 100, 100);
+});
+
+// Check if match target is reached (Americano mode)
+const isMatchComplete = computed(() => {
+    return isAmericano.value && currentSetTotal.value >= props.pointsPerSet;
+});
+
+// Can increment (respects both modes)
+const canIncrementHome = computed(() => {
+    if (isAmericano.value) {
+        return currentSetTotal.value < props.pointsPerSet;
+    }
+    return homeScore.value < props.pointsPerSet;
+});
+
+const canIncrementAway = computed(() => {
+    if (isAmericano.value) {
+        return currentSetTotal.value < props.pointsPerSet;
+    }
+    return awayScore.value < props.pointsPerSet;
+});
+
 const incrementHome = () => {
-    if (homeScore.value < props.pointsPerSet) {
+    if (canIncrementHome.value) {
         homeScore.value++;
         saveScore();
     }
@@ -50,7 +88,7 @@ const decrementHome = () => {
 };
 
 const incrementAway = () => {
-    if (awayScore.value < props.pointsPerSet) {
+    if (canIncrementAway.value) {
         awayScore.value++;
         saveScore();
     }
@@ -62,6 +100,17 @@ const decrementAway = () => {
         saveScore();
     }
 };
+
+// Auto-prompt completion when Americano target reached
+watch(isMatchComplete, (complete) => {
+    if (complete) {
+        setTimeout(() => {
+            if (confirm(`Target reached! ${homeScore.value} + ${awayScore.value} = ${props.pointsPerSet}\n\nComplete this match now?`)) {
+                router.post(route('tournaments.matches.complete', [props.tournament.id, props.match.id]));
+            }
+        }, 300);
+    }
+});
 
 const saveScore = () => {
     form.set_number = currentSet.value;
@@ -153,6 +202,28 @@ const totalAway = computed(() => {
         <div class="card p-8 mb-6">
             <div class="text-center text-sm text-gray-500 mb-4">
                 Round {{ match.round_number }} • Match #{{ match.match_number }}
+                <span v-if="isAmericano" class="ml-2 text-amber-400">• Americano Mode</span>
+            </div>
+            
+            <!-- Americano Progress Bar -->
+            <div v-if="isAmericano" class="mb-6">
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-gray-400">Progress</span>
+                    <span class="text-white font-medium">{{ currentSetTotal }} / {{ pointsPerSet }}</span>
+                </div>
+                <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                    <div 
+                        class="h-full transition-all duration-300 rounded-full"
+                        :class="isMatchComplete ? 'bg-green-500' : 'bg-amber-500'"
+                        :style="{ width: progressPercent + '%' }"
+                    ></div>
+                </div>
+                <div v-if="remainingPoints > 0" class="text-center text-sm text-gray-400 mt-2">
+                    {{ remainingPoints }} points remaining
+                </div>
+                <div v-else class="text-center text-sm text-green-400 mt-2 font-medium">
+                    🎉 Target reached!
+                </div>
             </div>
             
             <div class="grid grid-cols-3 gap-4 items-center">
@@ -170,7 +241,9 @@ const totalAway = computed(() => {
                     <div class="space-y-4">
                         <button 
                             @click="incrementHome"
-                            class="w-full py-8 text-6xl font-bold text-white bg-white/10 rounded-xl hover:bg-white/20 active:bg-white/30 transition touch-manipulation"
+                            :disabled="!canIncrementHome"
+                            class="w-full py-8 text-6xl font-bold text-white bg-white/10 rounded-xl transition touch-manipulation"
+                            :class="canIncrementHome ? 'hover:bg-white/20 active:bg-white/30' : 'opacity-40 cursor-not-allowed'"
                         >
                             +
                         </button>
@@ -219,7 +292,9 @@ const totalAway = computed(() => {
                     <div class="space-y-4">
                         <button 
                             @click="incrementAway"
-                            class="w-full py-8 text-6xl font-bold text-white bg-white/10 rounded-xl hover:bg-white/20 active:bg-white/30 transition touch-manipulation"
+                            :disabled="!canIncrementAway"
+                            class="w-full py-8 text-6xl font-bold text-white bg-white/10 rounded-xl transition touch-manipulation"
+                            :class="canIncrementAway ? 'hover:bg-white/20 active:bg-white/30' : 'opacity-40 cursor-not-allowed'"
                         >
                             +
                         </button>
