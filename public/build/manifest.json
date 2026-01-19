@@ -1,6 +1,6 @@
 {
-  "_AppLayout-CHeMtaew.js": {
-    "file": "assets/AppLayout-CHeMtaew.js",
+  "_AppLayout-BEajad0K.js": {
+    "file": "assets/AppLayout-BEajad0K.js",
     "name": "AppLayout",
     "imports": [
       "resources/js/app.js",
@@ -28,13 +28,13 @@
     ]
   },
   "resources/js/Pages/Leaderboard/Show.vue": {
-    "file": "assets/Show-B6_8-K77.js",
+    "file": "assets/Show-CCZoPZ9k.js",
     "name": "Show",
     "src": "resources/js/Pages/Leaderboard/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -42,13 +42,13 @@
     ]
   },
   "resources/js/Pages/Maintenance/Index.vue": {
-    "file": "assets/Index-er8han0d.js",
+    "file": "assets/Index-CVZyBwGC.js",
     "name": "Index",
     "src": "resources/js/Pages/Maintenance/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -57,13 +57,13 @@
     ]
   },
   "resources/js/Pages/Matches/Index.vue": {
-    "file": "assets/Index-CslLyWW8.js",
+    "file": "assets/Index-vRsxq6yu.js",
     "name": "Index",
     "src": "resources/js/Pages/Matches/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -72,13 +72,13 @@
     ]
   },
   "resources/js/Pages/Matches/ScoreInput.vue": {
-    "file": "assets/ScoreInput-BwTHFGcz.js",
+    "file": "assets/ScoreInput-BVerF3km.js",
     "name": "ScoreInput",
     "src": "resources/js/Pages/Matches/ScoreInput.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -87,13 +87,13 @@
     ]
   },
   "resources/js/Pages/Matches/Show.vue": {
-    "file": "assets/Show-DKx7zNLe.js",
+    "file": "assets/Show-_ZAO3OVc.js",
     "name": "Show",
     "src": "resources/js/Pages/Matches/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -101,13 +101,13 @@
     ]
   },
   "resources/js/Pages/Scoreboard/Show.vue": {
-    "file": "assets/Show-DcQqI6Wt.js",
+    "file": "assets/Show-C4o_Z24b.js",
     "name": "Show",
     "src": "resources/js/Pages/Scoreboard/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -116,7 +116,7 @@
     ]
   },
   "resources/js/Pages/Scoreboard/TV.vue": {
-    "file": "assets/TV-BiK74Nht.js",
+    "file": "assets/TV-BK_jiDS5.js",
     "name": "TV",
     "src": "resources/js/Pages/Scoreboard/TV.vue",
     "isDynamicEntry": true,
@@ -130,7 +130,7 @@
     ]
   },
   "resources/js/Pages/Tournaments/Complete.vue": {
-    "file": "assets/Complete-DvhsabRw.js",
+    "file": "assets/Complete-APiHaNVG.js",
     "name": "Complete",
     "src": "resources/js/Pages/Tournaments/Complete.vue",
     "isDynamicEntry": true,
@@ -144,13 +144,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Create.vue": {
-    "file": "assets/Create-CvF8ysmU.js",
+    "file": "assets/Create-By55l7bf.js",
     "name": "Create",
     "src": "resources/js/Pages/Tournaments/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -158,13 +158,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Edit.vue": {
-    "file": "assets/Edit-C2GajhLr.js",
+    "file": "assets/Edit-BbcBUd9v.js",
     "name": "Edit",
     "src": "resources/js/Pages/Tournaments/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -172,13 +172,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Index.vue": {
-    "file": "assets/Index-BpD3e8VO.js",
+    "file": "assets/Index-DxHERQ8x.js",
     "name": "Index",
     "src": "resources/js/Pages/Tournaments/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -187,13 +187,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Show.vue": {
-    "file": "assets/Show-D89OCSwx.js",
+    "file": "assets/Show-C320CzgJ.js",
     "name": "Show",
     "src": "resources/js/Pages/Tournaments/Show.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -202,13 +202,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Statistics.vue": {
-    "file": "assets/Statistics-DIwmUFFm.js",
+    "file": "assets/Statistics-DFQzqFrQ.js",
     "name": "Statistics",
     "src": "resources/js/Pages/Tournaments/Statistics.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -217,13 +217,13 @@
     ]
   },
   "resources/js/Pages/Tournaments/Unlock.vue": {
-    "file": "assets/Unlock-4LNMfAgV.js",
+    "file": "assets/Unlock-CKpJcWQV.js",
     "name": "Unlock",
     "src": "resources/js/Pages/Tournaments/Unlock.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AppLayout-CHeMtaew.js",
+      "_AppLayout-BEajad0K.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -232,7 +232,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-B1OE1LNM.js",
+    "file": "assets/app-DzME5Dyu.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

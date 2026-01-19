@@ -32,8 +32,8 @@ composer.lock_bak
 /storage/framework/views/*
 /storage/logs/*
 
-# Build artifacts (regenerate on each environment)
-/public/build/*
+# Build artifacts - now tracked for VPS deployment
+# /public/build/*
 /public/mix-manifest.json
 
 # Package lock files (can differ between environments)
