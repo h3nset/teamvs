@@ -8,7 +8,7 @@ const form = useForm({
     pairs_per_team: 4,
     rounds: 4,
     max_matches_per_pair: 4,
-    points_per_set: 24,
+    points_per_set: 21,
     scoring_mode: 'americano',
 });
 
@@ -41,7 +41,7 @@ const submit = () => {
                         v-model="form.name"
                         type="text"
                         class="input"
-                        placeholder="e.g., Alumni Cup 2024"
+                        placeholder="e.g., 2026 Alumni Cup"
                         required
                     />
                     <p v-if="form.errors.name" class="mt-1 text-sm text-red-400">{{ form.errors.name }}</p>
