@@ -31,9 +31,29 @@ onMounted(() => {
 
 const copyToken = async () => {
     if (newTournamentToken.value) {
-        await navigator.clipboard.writeText(newTournamentToken.value);
-        tokenCopied.value = true;
-        setTimeout(() => tokenCopied.value = false, 2000);
+        try {
+            // Try modern Clipboard API first (requires HTTPS or localhost)
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(newTournamentToken.value);
+            } else {
+                // Fallback for HTTP (non-secure context)
+                const textArea = document.createElement('textarea');
+                textArea.value = newTournamentToken.value;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+            tokenCopied.value = true;
+            setTimeout(() => tokenCopied.value = false, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            alert('Failed to copy token. Please copy manually: ' + newTournamentToken.value);
+        }
     }
 };
 
