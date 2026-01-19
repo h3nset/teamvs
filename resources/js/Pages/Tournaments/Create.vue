@@ -9,7 +9,7 @@ const form = useForm({
     rounds: 4,
     max_matches_per_pair: 4,
     points_per_set: 24,
-    scoring_mode: 'unlimited',
+    scoring_mode: 'americano',
 });
 
 const submit = () => {
